@@ -1,0 +1,197 @@
+{
+	"_comment" : {
+		"this" : "Config for animovr instance",
+		"film" : "name indicates the id of target div",
+		"frame_rate" : "Animation intervals per second",
+		"speed" : "Multiplier for overall speed",
+		"sprites" : {
+			"url" : "image file: png, animated gif, etc",
+			"timeout" : "deactivate sprite after this length of time",
+			"scale" : "factor to scale sprite size",
+			"bearing" : "N|S|E|W direction of 'central' axis of motion",
+			"central" : "function for central velocity",
+			"tangential" : "function for velocity at right angle to bearing",
+			"rotational" : "function for rotational angle in degrees",
+			"time_offset" : "activation function to offset time axis for all motion axes of this sprite",
+			"distance" : "activation function for 1-based distance, larger values are farther/smaller",
+			"initial_central" : "activation function for point on [0,1] central axis, default 0",
+			"initial_tangential" : "activation function for point on [0,1] tangential axis, default random"
+		},
+		"functions" : {
+			"constant" : "A constant numerical value",
+			"time" : "Object representing seconds since sprite was activated",
+			"sin" : "Object representing sine function, angle in degrees",
+			"cos" : "Object representing cosine function, angle in degrees",
+			"+" : "Object representing sum of 'a' and 'b' members",
+			"*" : "Object representing product of 'a' and 'b' members",
+			"random" : "Object representing random number between 0 and 1",
+			"random_bearing" : "Object representing cumulative, pseudo-random number on [a, a+width] (default [-1, 1]), changing every period seconds" 
+		}
+	},
+	"film" : { "name" : "film" },
+	"maxActive" : "10",
+	"frame_rate" : "20",
+	"speed" : "1",
+	"sprites" : [
+		{
+			"url" : "images/halloween/bat-anim.gif",
+			"bearing" : "N",
+			"central" : { "type" : "*", "a": "400", "b": { "type" : "cos", "angle": { "type" : "random_bearing", "a": "-60", "width": "120", "period" : "0.25" } } },
+			"tangential" : { "type" : "*", "a": "400", "b": { "type" : "sin", "angle": { "type" : "random_bearing", "a": "-60", "width": "120", "period" : "0.25" } } },
+			"rotational" : { "type" : "random_bearing", "a": "-60", "width": "120", "period" : "0.25" },
+			"distance" : { "type": "+", "a": "2", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/yellowleaf1.png",
+			"scale" : "0.5",
+			"bearing" : "S",
+			"central" : "100",
+			"tangential" : "0",
+			"rotational" : { "type" : "*", "a" : "50", "b" : { "type" : "time" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/redleaf2.png",
+			"scale" : "0.5",
+			"bearing" : "S",
+			"central" : "90",
+			"tangential" : "0",
+			"rotational" : { "type" : "*", "a" : "50", "b" : { "type" : "time" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/redleaf1-anim.gif",
+			"bearing" : "S",
+			"central" : { "type": "+", "a": "80", "b": { "type" : "*", "a" : "140", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "180", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "300", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "90", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type": "+", "a": ".6", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "10", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/redleaf1-anim.gif",
+			"bearing" : "S",
+			"central" : { "type": "+", "a": "90", "b": { "type" : "*", "a" : "140", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "180", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "300", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "90", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type": "+", "a": ".6", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "10", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "3", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/redleaf1-anim.gif",
+			"bearing" : "S",
+			"central" : { "type": "+", "a": "110", "b": { "type" : "*", "a" : "140", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "180", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "300", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "90", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type": "+", "a": ".6", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "10", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "3", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/orangeleaf1.png",
+			"bearing" : "S",
+			"central" : "100",
+			"tangential" : "20",
+			"rotational" : { "type" : "*", "a" : "-50", "b" : { "type" : "time" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/yellowleaf2.png",
+			"bearing" : "S",
+			"scale" : "0.75",
+			"central" : { "type": "+", "a": "80", "b": { "type" : "*", "a" : "120", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "180", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "350", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "0", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type": "+", "a": "0.7", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "5", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "3", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/yellowleaf2.png",
+			"bearing" : "S",
+			"scale" : "0.75",
+			"central" : { "type": "+", "a": "70", "b": { "type" : "*", "a" : "120", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "180", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "350", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "0", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type": "+", "a": "0.7", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "5", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "3", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/brownleaf1.png",
+			"bearing" : "S",
+			"central" : "100",
+			"tangential" : "20",
+			"rotational" : { "type" : "*", "a" : "-50", "b" : { "type" : "time" } },
+			"time_offset" : { "type" : "*", "a" : "5", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/brownleaf1.png",
+			"bearing" : "S",
+			"central" : { "type": "+", "a": "200", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "400", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "80", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "200", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "90", "b": { "type" : "*", "a" : "20", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "200", "b" : { "type": "+", "a": ".2", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "5", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "4", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/brownleaf2.png",
+			"bearing" : "S",
+			"central" : { "type": "+", "a": "180", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "400", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "80", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "200", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "0", "b": { "type" : "*", "a" : "20", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "200", "b" : { "type": "+", "a": ".2", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "5", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "4", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/brownleaf2.png",
+			"bearing" : "S",
+			"central" : { "type": "+", "a": "200", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "400", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "80", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "200", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "0", "b": { "type" : "*", "a" : "20", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "200", "b" : { "type": "+", "a": ".2", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "5", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "4", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/brownleaf2.png",
+			"bearing" : "S",
+			"central" : { "type": "+", "a": "140", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "400", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "80", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "200", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "0", "b": { "type" : "*", "a" : "20", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "200", "b" : { "type": "+", "a": ".2", "b": { "type" : "time" } } } } } },
+			"time_offset" : { "type" : "*", "a" : "5", "b" : { "type": "random" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "4", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/redleaf3.png",
+			"bearing" : "S",
+			"central" : { "type": "+", "a": "360", "b": { "type" : "*", "a" : "40", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "800", "b" : { "type" : "time" } } } } },
+			"tangential" : { "type" : "*", "a" : "80", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "400", "b" : { "type" : "time" } } } },
+			"rotational" : { "type": "+", "a": "30", "b": { "type" : "*", "a" : "20", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "400", "b" : { "type": "+", "a": ".2", "b": { "type" : "time" } } } } } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "4", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/greenleaf1.png",
+			"bearing" : "S",
+			"central" : "200",
+			"tangential" : { "type" : "*", "a" : "60", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type" : "time" } } } },
+			"rotational" : { "type" : "*", "a" : "50", "b" : { "type" : "time" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/greenleaf2.png",
+			"bearing" : "S",
+			"central" : "170",
+			"tangential" : { "type" : "*", "a" : "50", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type" : "time" } } } },
+			"rotational" : { "type" : "*", "a" : "50", "b" : { "type" : "time" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		},
+		{
+			"url" : "images/autumn/redleaf4.png",
+			"bearing" : "S",
+			"central" : "100",
+			"tangential" : { "type" : "*", "a" : "60", "b" : { "type" : "sin", "angle" : { "type" : "*", "a": "90", "b" : { "type" : "time" } } } },
+			"rotational" : { "type" : "*", "a" : "50", "b" : { "type" : "time" } },
+			"distance" : { "type": "+", "a": "1", "b": { "type" : "*", "a" : "2", "b" : { "type": "random" } } }
+		}
+	]
+}
+
+		
