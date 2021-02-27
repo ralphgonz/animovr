@@ -12,7 +12,7 @@ Add script prerequisites and initialize animation:
 <script type="text/javascript" src="js/animovr.1.js"></script>
 <script type="text/javascript">
     window.onload = function() {
-        animovr.init('json/mySprites.json');
+        animovr.init('json/<sprites file>.json');
     }
 </script>
 ```
@@ -20,18 +20,20 @@ Add script prerequisites and initialize animation:
 Add an `id` to the element that will define the overlay boundaries, for example:
 
 ```
-<div id="film" style="position:relative;overflow:hidden;">
+<div id="<container id>" style="position:relative;overflow:hidden;">
   ...
 </div>
 ```
 
+Example: [animovrTest.html]
+
 ## Define sprites
 
-Create mySprites.json cfg file, specifying the `id` of the tag which will serve as the container. (In the example above the id is `film`.) This document defines animation parameters and details for each animated sprite:
+Create `<sprites file>.json` cfg file, specifying the `id` of the tag which will serve as the container. This document defines animation parameters and details for each animated sprite:
 * image file
 * transformations
 * motion profile
 
-See `json/demo2.json` for detailed syntax and examples.
+Detailed syntax and examples: [json/demo2.json]
 
 
