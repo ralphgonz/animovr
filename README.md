@@ -25,7 +25,7 @@ Add an `id` to the element that will define the overlay boundaries, for example:
 </div>
 ```
 
-Example: [animovrTest.html]
+[Sample web page](animovrTest.html)
 
 ## Define sprites
 
@@ -34,6 +34,6 @@ Create `<sprites file>.json` cfg file, specifying the `id` of the tag which will
 * transformations
 * motion profile
 
-Detailed syntax and examples: [json/demo2.json]
+[Detailed sprite syntax and examples](json/demo2.json)
 
 
